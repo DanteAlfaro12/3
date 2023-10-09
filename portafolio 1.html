@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <hr>
+    <h1>Conversor de Millas Náuticas a Metros</h1>
+    <label>Millas Náuticas <input type="number" id="millasNauticas"></label><br>
+    <button onclick="convertirMillasAMetros()">Convertir</button><br>
+    <h2>Resultado:</h2>
+    <p id="resultadoMillasAMetros"></p>
+    <script>
+        function convertirMillasAMetros() {
+            let millasNauticas = parseFloat(document.getElementById("millasNauticas").value);
+
+            if (!isNaN(millasNauticas) && millasNauticas >= 0) {
+                let metros = millasNauticas * 1852;
+                document.getElementById("resultadoMillasAMetros").innerHTML = `${millasNauticas} millas náuticas son equivalentes a ${metros.toFixed(2)} metros.`;
+            } else {
+                alert("Por favor, ingrese una cantidad válida de millas náuticas (mayor o igual a cero).");
+            }
+        }
+        </script>
+        <hr>
+        <h1>descuentador</h1>
+        <label>Precio <input type="number" id="2precio"></label><br>
+        <label>% de descuento <input type="number" id="2descuento"></label><br>
+        <button onclick="calcularDescuento()">Calcular</button><br>
+        <label>Monto del descuento <input type="number" id="2montoDescuento" readonly></label>
+    
+        <script>
+            function calcularDescuento() {
+                let precio = parseFloat(document.getElementById("2precio").value);
+                let descuento = parseFloat(document.getElementById("2descuento").value);
+    
+                if (!isNaN(precio) && !isNaN(descuento)) {
+                    let montoDescuento = (precio * descuento) / 100;
+                    document.getElementById("2montoDescuento").value = montoDescuento.toFixed(2);
+                } else {
+                    alert("Por favor, ingrese valores numéricos válidos.");
+                }
+            }
+            </script>
+            <hr>
+    <h1>Descuentador 2</h1>
+    <label>Precio original <input type="number" id="precioOriginal"></label><br>
+    <label>Precio con descuento <input type="number" id="precioConDescuento"></label><br>
+    <button onclick="calcularPorcentajeDescuento()">Calcular</button><br>
+
+    <h2>Resultado:</h2>
+    <p id="porcentajeDescuento"></p>
+
+    <script>
+        function calcularPorcentajeDescuento() {
+            let precioOriginal = parseFloat(document.getElementById("precioOriginal").value);
+            let precioConDescuento = parseFloat(document.getElementById("precioConDescuento").value);
+
+            if (!isNaN(precioOriginal) && !isNaN(precioConDescuento) && precioOriginal > 0 && precioConDescuento > 0) {
+                let descuento = ((precioOriginal - precioConDescuento) / precioOriginal) * 100;
+                document.getElementById("porcentajeDescuento").innerHTML = `Porcentaje de Descuento: ${descuento.toFixed(2)}%`;
+            } else {
+                alert("Por favor, ingrese valores numéricos válidos y asegúrese de que ambos precios sean mayores que cero.");
+            }
+        }
+        </script>
+        <hr>
+    <h1>Operaciones Matemáticas basicas</h1>
+    <label>Primer número <input type="number" id="numero1"></label><br>
+    <label>Segundo número <input type="number" id="numero2"></label><br>
+    <button onclick="realizarOperaciones()">Calcular</button><br>
+
+    <h2>Resultados:</h2>
+    <p id="suma"></p>
+    <p id="resta"></p>
+    <p id="multiplicacion"></p>
+    <p id="division"></p>
+
+    <script>
+        function realizarOperaciones() {
+            let num1 = parseFloat(document.getElementById("numero1").value);
+            let num2 = parseFloat(document.getElementById("numero2").value);
+
+            if (!isNaN(num1) && !isNaN(num2)) {
+                let suma = num1 + num2;
+                let resta = num1 - num2;
+                let multiplicacion = num1 * num2;
+                let division = num1 / num2;
+
+                document.getElementById("suma").innerHTML = `Suma: ${suma}`;
+                document.getElementById("resta").innerHTML = `Resta: ${resta}`;
+                document.getElementById("multiplicacion").innerHTML = `Multiplicación: ${multiplicacion}`;
+                
+                // Validar si el segundo número es distinto de cero para evitar división por cero
+                if (num2 !== 0) {
+                    document.getElementById("division").innerHTML = `División: ${division.toFixed(2)}`;
+                } else {
+                    document.getElementById("division").innerHTML = "No se puede dividir por cero.";
+                }
+            } else {
+                alert("Por favor, ingrese valores numéricos válidos.");
+            }
+        }
+    </script>
+    <hr>
+    <h1>Calculadora de Volumen de Esfera</h1>
+    <label>Radio de la esfera <input type="number" id="radio"></label><br>
+    <button onclick="calcularVolumen()">Calcular</button><br>
+
+    <h2>Resultado:</h2>
+    <p id="resultadoVolumen"></p>
+
+    <script>
+        function calcularVolumen() {
+            let radio = parseFloat(document.getElementById("radio").value);
+
+            if (!isNaN(radio) && radio > 0) {
+                let volumen = (4/3) * Math.PI * Math.pow(radio, 3);
+                document.getElementById("resultadoVolumen").innerHTML = `Volumen de la esfera: ${volumen.toFixed(2)}`;
+            } else {
+                alert("Por favor, ingrese un valor numérico válido para el radio y asegúrese de que sea mayor que cero.");
+            }
+        }
+    </script>
+     <hr>
+     <h1>Conversor de Pulgadas a Centímetros</h1>
+     <label>Cantidad en pulgadas <input type="number" id="pulgadas"></label><br>
+     <button onclick="convertirPulgadas()">Convertir</button><br>
+ 
+     <h2>Resultado:</h2>
+     <p id="resultadoCentimetros"></p>
+ 
+     <script>
+         function convertirPulgadas() {
+             let pulgadas = parseFloat(document.getElementById("pulgadas").value);
+ 
+             if (!isNaN(pulgadas)) {
+                 let centimetros = pulgadas * 2.54;
+                 document.getElementById("resultadoCentimetros").innerHTML = `${pulgadas} pulgadas son equivalentes a ${centimetros.toFixed(2)} centímetros.`;
+             } else {
+                 alert("Por favor, ingrese un valor numérico válido para las pulgadas.");
+             }
+         }
+     </script>
+    <hr>
+    <h1>Conversor de Segundos</h1>
+    <label>Cantidad en segundos <input type="number" id="segundos"></label><br>
+    <button onclick="convertirSegundos()">Convertir</button><br>
+
+    <h2>Resultado:</h2>
+    <p id="resultadoTiempo"></p>
+
+    <script>
+        function convertirSegundos() {
+            let segundosTotales = parseInt(document.getElementById("segundos").value);
+
+            if (!isNaN(segundosTotales) && segundosTotales >= 0) {
+                let horas = Math.floor(segundosTotales / 3600);
+                let minutos = Math.floor((segundosTotales % 3600) / 60);
+                let segundos = segundosTotales % 60;
+
+                document.getElementById("resultadoTiempo").innerHTML = `${segundosTotales} segundos equivalen a ${horas} horas, ${minutos} minutos y ${segundos} segundos.`;
+            } else {
+                alert("Por favor, ingrese una cantidad válida de segundos (mayor o igual a cero).");
+            }
+        }
+    </script>
+    <hr>
+    <h1>Calculadora de Volumen de Cilindro</h1>
+    <label>Radio de la base <input type="number" id="radioCilindro"></label><br>
+    <label>Altura del cilindro <input type="number" id="alturaCilindro"></label><br>
+    <button onclick="calcularVolumenCilindro()">Calcular</button><br>
+
+    <h2>Resultado:</h2>
+    <p id="resultadoVolumenCilindro"></p>
+
+    <script>
+        function calcularVolumenCilindro() {
+            let radioCilindro = parseFloat(document.getElementById("radioCilindro").value);
+            let alturaCilindro = parseFloat(document.getElementById("alturaCilindro").value);
+
+            if (!isNaN(radioCilindro) && !isNaN(alturaCilindro) && radioCilindro > 0 && alturaCilindro > 0) {
+                let volumenCilindro = Math.PI * Math.pow(radioCilindro, 2) * alturaCilindro;
+                document.getElementById("resultadoVolumenCilindro").innerHTML = `Volumen del cilindro: ${volumenCilindro.toFixed(2)}`;
+            } else {
+                alert("Por favor, ingrese valores numéricos válidos para el radio y la altura, y asegúrese de que ambos sean mayores que cero.");
+            }
+        }
+    </script>
+    <hr>
+    <h1>Calculadora de Volumen de Cono</h1>
+    <label>Radio de la base <input type="number" id="radioCono"></label><br>
+    <label>Altura del cono <input type="number" id="alturaCono"></label><br>
+    <button onclick="calcularVolumenCono()">Calcular</button><br>
+
+    <h2>Resultado:</h2>
+    <p id="resultadoVolumenCono"></p>
+
+    <script>
+        function calcularVolumenCono() {
+            let radioCono = parseFloat(document.getElementById("radioCono").value);
+            let alturaCono = parseFloat(document.getElementById("alturaCono").value);
+
+            if (!isNaN(radioCono) && !isNaN(alturaCono) && radioCono > 0 && alturaCono > 0) {
+                let volumenCono = (1/3) * Math.PI * Math.pow(radioCono, 2) * alturaCono;
+                document.getElementById("resultadoVolumenCono").innerHTML = `Volumen del cono: ${volumenCono.toFixed(2)}`;
+            } else {
+                alert("Por favor, ingrese valores numéricos válidos para el radio y la altura, y asegúrese de que ambos sean mayores que cero.");
+            }
+        }
+    </script>
+    <hr>
+    <h1>10. Calculadora de Volumen de Cubo</h1>
+    <label>Lado del cubo <input type="number" id="ladoCubo"></label><br>
+    <button onclick="calcularVolumenCubo()">Calcular</button><br>
+
+    <h2>Resultado:</h2>
+    <p id="resultadoVolumenCubo"></p>
+
+    <script>
+        function calcularVolumenCubo() {
+            let ladoCubo = parseFloat(document.getElementById("ladoCubo").value);
+
+            if (!isNaN(ladoCubo) && ladoCubo > 0) {
+                let volumenCubo = Math.pow(ladoCubo, 3);
+                document.getElementById("resultadoVolumenCubo").innerHTML = `Volumen del cubo: ${volumenCubo.toFixed(2)}`;
+            } else {
+                alert("Por favor, ingrese un valor numérico válido para el lado del cubo y asegúrese de que sea mayor que cero.");
+            }
+        }
+    </script>
+    
+       
+        
+        
+            
+        
